@@ -8,9 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardComponent implements OnInit {
   @Input() data;
 
+  starCount = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.starCount = Array(Math.floor(this.data.header.stars)).fill(1);
+    if (Math.floor(this.data.header.stars) < Math.ceil(this.data.header.stars)) {
+      this.starCount.push(0);
+    }
   }
 
 }

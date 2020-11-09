@@ -5,22 +5,38 @@
     <div class="card__avatar">
       <div class="card__avatar-countries">
         <ng-container *ngFor="let country of data.countries" >
-          <img class="card__avatar-countries-img" [src]="country || 'https://img.icons8.com/ios/2x/horizontal-flag.png'" alt="country picture">
+          <img class="card__avatar-countries-img" [src]="country || 'https://img.icons8.com/ios/2x/horizontal-flag.png'" alt="picture" srcset="">
         </ng-container>
       </div>
-      <img class="card__avatar-picture" [src]="data.avatar || '../../../assets/no-avatar.png'" alt="picture" srcset="">
+
+      <img class="card__avatar-picture" [src]="data.avatar || '../../../assets/no-avatar.png'" alt="picture">
+
     </div>
   </div>
+
   <div class="card--right">
-    <div class="card_header">
-      {{data.name}}
-      {{data.verified}}
-      {{data.stars}}
-      {{data.reviewCounts}}
+
+    <mat-icon class="card-header__edit" mat-list-icon>edit</mat-icon>
+
+    <div class="card-header">
+
+      <div class="card-header__name-wrap">
+        <b class="card-header__name">{{data.header.name}}</b>
+        <mat-icon class="card-header__verified" *ngIf="data.header.verified" mat-list-icon>verified_user</mat-icon>
+      </div>
+
+      <div class="card-header__stars">
+        <div *ngFor="let star of starCount; let idx=index;">
+          <mat-icon class="card-header__star" *ngIf="star===1" mat-list-icon>star</mat-icon>
+          <mat-icon class="card-header__star" *ngIf="star===0" mat-list-icon>star_half</mat-icon>
+        </div>
+        <a href="http://" target="_blank" rel="noopener noreferrer">{{data.header.reviewCounts}} Reviews</a>
+      </div>
     </div>
-    <div class="card_body">
-      {{data.description}}
-      {{data.ocation.city}} , {{data.ocation.country}}
+    <div class="card-body">
+      {{data.body.description}}
+      {{data.body.location.city}} , {{data.body.location.country}}
     </div>
   </div>
 </div>
+
