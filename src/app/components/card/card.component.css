@@ -1,0 +1,33 @@
+.card_wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.card--left {
+  width: 50%;
+}
+
+.card__avatar {
+  display: flex;
+  flex-direction: row;
+}
+
+.card__avatar-countries-img {
+  display: flex;
+  flex-direction: column;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.card__avatar-picture {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card--right {
+  width: 50%;
+}

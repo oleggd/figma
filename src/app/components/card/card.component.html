@@ -1,0 +1,26 @@
+<p>card works!</p>
+
+<div class="card_wrap">
+  <div class="card--left">
+    <div class="card__avatar">
+      <div class="card__avatar-countries">
+        <ng-container *ngFor="let country of data.countries" >
+          <img class="card__avatar-countries-img" [src]="country || 'https://img.icons8.com/ios/2x/horizontal-flag.png'" alt="country picture">
+        </ng-container>
+      </div>
+      <img class="card__avatar-picture" [src]="data.avatar || '../../../assets/no-avatar.png'" alt="picture" srcset="">
+    </div>
+  </div>
+  <div class="card--right">
+    <div class="card_header">
+      {{data.name}}
+      {{data.verified}}
+      {{data.stars}}
+      {{data.reviewCounts}}
+    </div>
+    <div class="card_body">
+      {{data.description}}
+      {{data.ocation.city}} , {{data.ocation.country}}
+    </div>
+  </div>
+</div>
