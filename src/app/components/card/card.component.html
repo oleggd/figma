@@ -4,8 +4,14 @@
   <div class="card--left">
     <div class="card__avatar">
       <div class="card__avatar-countries">
-        <ng-container *ngFor="let country of data.countries" >
-          <img class="card__avatar-countries-img" [src]="country || 'https://img.icons8.com/ios/2x/horizontal-flag.png'" alt="picture" srcset="">
+        <ng-container *ngFor="let country of countryFlags" >
+         <!--  {{country.top}}
+          {{country.right}} -->
+          <!-- <div style="position: absolute; top: 55px; left:55px; color: white">X</div> -->
+          <!-- <div class="tempX" [style]="{top: country.top, left: country.left}">X</div> -->
+          <img class="card__avatar-countries-img" [style]="{top: country.top, left: country.left}"
+            [src]="country.flag || 'https://img.icons8.com/ios/2x/horizontal-flag.png'"
+            alt="picture">
         </ng-container>
       </div>
 
@@ -30,13 +36,27 @@
           <mat-icon class="card-header__star" *ngIf="star===1" mat-list-icon>star</mat-icon>
           <mat-icon class="card-header__star" *ngIf="star===0" mat-list-icon>star_half</mat-icon>
         </div>
-        <a href="http://" target="_blank" rel="noopener noreferrer">{{data.header.reviewCounts}} Reviews</a>
+        <a class="card-header__reviews" href="http://" target="_blank">{{data.header.reviewCounts}} Reviews</a>
       </div>
     </div>
     <div class="card-body">
-      {{data.body.description}}
-      {{data.body.location.city}} , {{data.body.location.country}}
+      <div class="card-body__description">
+        {{data.body.description}}
+      </div>
+
+      <div class="card-body__location">
+        <mat-icon class="card-body__location__icon" mat-list-icon>location_on</mat-icon>
+        {{data.body.location.city}} , {{data.body.location.country}}
+      </div>
     </div>
   </div>
 </div>
 
+<!-- <div style="position: relative;">
+  <ng-container *ngFor="let country of countryFlags" >
+     <img class="card__avatar-countries-img1"
+       [style]="{top: country.top, left: country.right}"
+       [src]="country.flag"
+       alt="picture">
+   </ng-container>
+</div> -->

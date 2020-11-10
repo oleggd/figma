@@ -13,16 +13,16 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.cardData = {
       avatar: '../assets/allyson-felix.jpg',
-      countries: ['https://img.icons8.com/emoji/2x/monaco-emoji.png',
-                  'https://img.icons8.com/emoji/2x/slovenia-emoji.png',
-                  'https://img.icons8.com/emoji/2x/guyana-emoji.png',
-                  'https://img.icons8.com/emoji/2x/isle-of-man-emoji.png',
-                  'https://img.icons8.com/emoji/2x/czechia-emoji.png',
-                  'https://img.icons8.com/emoji/2x/brazil-emoji.png',
-                  'https://img.icons8.com/emoji/2x/hong-kong-sar-china-emoji.png',
-                  'https://img.icons8.com/emoji/2x/germany-emoji.png',
-                  'https://img.icons8.com/emoji/2x/zimbabwe-emoji.png',
-                  'https://img.icons8.com/emoji/2x/japan-emoji.png'
+      countryFlags: [
+                  'https://www.flaticon.com/svg/static/icons/svg/197/197374.svg',
+                  'https://www.flaticon.com/svg/static/icons/svg/197/197571.svg',
+                  'https://www.flaticon.com/svg/static/icons/svg/197/197386.svg',
+                  'https://www.flaticon.com/svg/static/icons/svg/197/197626.svg',
+                  'https://www.flaticon.com/svg/static/icons/svg/197/197518.svg',
+                  'https://www.flaticon.com/svg/static/icons/svg/197/197463.svg',
+                  'https://www.flaticon.com/svg/static/icons/svg/197/197632.svg',
+                  'https://www.flaticon.com/svg/static/icons/svg/197/197507.svg',
+                  'https://www.flaticon.com/svg/static/icons/svg/197/197604.svg'
                 ],
       header: {
         name: 'Cristofer Carder Junior',
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
         description: 'UI\\UX Designer, Web Designer, Mobile App Designer, UI\UX Designer, Web Designer,Mobile App Designer',
         location: {
           city: 'Lviv',
-          country: 'Ukraibe'
+          country: 'Ukraine'
         }
       }
     };
