@@ -5,7 +5,7 @@
   width: 395px;
   height: 200px;
   border-radius: 10px;
-  box-shadow: 0px 1px 3px 3px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.16);
 }
 
 .card--left {
@@ -20,6 +20,7 @@
 .card__avatar {
   display: flex;
   flex-direction: row;
+  position: relative;
   width: 140px;
   height: 140px;
 }
@@ -28,11 +29,6 @@
   position: relative;
   width: 1px;
   height: 1px;
-}
-
-.tempX {
-  position: absolute;
-  color: black;
 }
 
 .card__avatar-countries-img {
@@ -51,6 +47,22 @@
   margin: 15px 0 0 15px;
 }
 
+.card__avatar__edit-wrap {
+  position: absolute;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  /*background: lightsteelblue;*/
+  right: 25px;
+  top: 20px;
+}
+
+.card__avatar__edit {
+  font-size: 12px;
+  margin-top: -7px;
+  color: white;
+}
+
 .card--right {
   width: 60%;
   display: flex;
@@ -67,10 +79,10 @@
 
 .card-header__edit {
   position: absolute;
-  top: 8px;
+  top: 2px;
   right: 2px;
   font-size: 16px;
-  color: #4C547B;
+  /*color: #4C547B;*/
 }
 
 .card-header__name-wrap {

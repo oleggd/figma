@@ -10,6 +10,7 @@ export class CardComponent implements OnInit {
 
   starCount = [];
   countryFlags = [];
+  visibleCountryFlags = [];
 
   constructor() { }
 
@@ -19,16 +20,21 @@ export class CardComponent implements OnInit {
       this.starCount.push(0);
     }
 
-    if (this.data.countryFlags.length > 0) {
+    this.countryFlags = this.calcCountriesPlacement(this.data.countryFlags);
+    this.visibleCountryFlags = this.countryFlags.slice();
+  }
+
+  calcCountriesPlacement(countryFlags): [any] {
+    if (countryFlags.length > 0) {
       const circleCenterX = 50; // relative to parent div - top left corner
       const circleCenterY = 63; // relative to parent div - top left corner
       const currentAngle = Math.PI / (2 * 4); // ~22 degree
       const leftBaseAngle = Math.PI; // 180 degree
 
-      const currentCenter = Math.ceil(this.data.countryFlags.length / 2); // middle flag on 180 degree
+      const currentCenter = Math.ceil(countryFlags.length / 2); // middle flag on 180 degree
       const radius = 68;
 
-      this.countryFlags = this.data.countryFlags.map((item, index) => {
+      return countryFlags.map((item, index) => {
 
         let angleForPoint;
         let topPosition;
@@ -38,15 +44,8 @@ export class CardComponent implements OnInit {
         direction = index < currentCenter ? -1 : 1; // one half will be placed up from 180, other below
 
         angleForPoint = leftBaseAngle + direction * ((currentCenter - index - 1) * currentAngle);
-        console.log('angleForPoint : ', angleForPoint);
-        console.log('Math.cos(angleForPoint): ', Math.cos(angleForPoint));
-        console.log('Math.sin(angleForPoint): ', Math.sin(angleForPoint));
-        console.log('radius * Math.cos(angleForPoint): ', radius * Math.cos(angleForPoint));
-        console.log('radius * Math.sin(angleForPoint): ', radius * Math.sin(angleForPoint));
         leftPosition = circleCenterX + radius * Math.cos(angleForPoint);
         topPosition = circleCenterY + direction * radius * Math.sin(angleForPoint);
-        console.log('leftPosition: ', leftPosition);
-        console.log('topPosition: ', topPosition);
 
         return {
           flag: item,
@@ -57,4 +56,20 @@ export class CardComponent implements OnInit {
     }
   }
 
+  onChangeCountries(): void {
+    const countryFlagsLength = this.visibleCountryFlags.length;
+    let localArray = [];
+
+    if (countryFlagsLength > 1) {
+      localArray = this.visibleCountryFlags.map((item) => item.flag).slice(0, countryFlagsLength - 2);
+      localArray = this.calcCountriesPlacement(localArray);
+      this.visibleCountryFlags = localArray.slice();
+    } else {
+      this.visibleCountryFlags = this.countryFlags.slice();
+    }
+  }
+
+  onEdit(): void {
+    console.log('onEdit');
+  }
 }
